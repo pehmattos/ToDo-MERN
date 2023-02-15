@@ -1,0 +1,37 @@
+html,
+body {
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+}
+.to-do-list {
+    text-align: center;
+}
+
+.wrapper {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.row {
+  background-color: bisque;
+  padding: 10px;
+  margin: 2px;
+  border-radius: 25px;
+  display: flex;
+  justify-content: space-around;
+}
+.buttonRow {
+  padding: 25px;
+  display: flex;
+  justify-content: center;
+}
+
+.buttonRow button {
+  background-color: #ffffff;
+  border: 0;
+  cursor: pointer;
+}
