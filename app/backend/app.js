@@ -4,6 +4,7 @@ var bodyParser = require('body-parser');
 var cors = require("cors");
 //afim de usar o middleware
 const app = express();
+const PORT = process.env.MONGOPORT || 3000;
 
 app.use(bodyParser.json());
 app.use(cors());
@@ -16,7 +17,7 @@ app.use((req, res, next) => {
 });
 app.use(express.json());
 
-app.listen(3000, () => {
+app.listen(PORT, () => {
     console.log(`Servidor iniciado na porta 3000: http://localhost:3000`);
     console.log('CORS-enabled web server listening on port 3000');
 });
