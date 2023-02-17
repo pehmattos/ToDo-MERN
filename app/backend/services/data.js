@@ -7,7 +7,7 @@ const { env } = require("process");
 
 // Connection URL
 // const url = "mongodb://0.0.0.0:27017";
-const url = env("MONGO_URL");
+const url = process.env.MONGO_URL || "mongodb://127.0.0.1:27017";
 const client = new MongoClient(url);
 // Database Name
 const dbName = "to-do-db";
