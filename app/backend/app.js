@@ -10,7 +10,7 @@ const PORT = process.env.PORT || process.env.PORT_LOCAL;
 
 // modules
 app.use(bodyParser.json()); // analisa textos json
-app.use(cors());
+app.use(cors()); // corre em diferentes portas
 
 // router-level middleware
 app.use("/to-do", todoRoutes, (req, res) =>{
