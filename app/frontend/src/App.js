@@ -1,6 +1,9 @@
 import "./App.css";
 import React, { useState, useEffect } from "react";
 import Item from "./components/item";
+// import dotenv from 'dotenv';
+// dotenv.config();
+const url = process.env.REACT_APP_URL;
 
 function App() {
   // State changes -  when add something
@@ -9,7 +12,7 @@ function App() {
 
   // Capturar Dados
   function getData() {
-    fetch("http://localhost:3000/to-do/list", { method: "GET" })
+    fetch(`${url}/list`, { method: "GET" })
       .then((res) => res.json(res))
       .then((data) => setItens(data)) // when setItens work change the state of /list
       .catch((err) => console.log(err))
@@ -17,7 +20,7 @@ function App() {
 
   // Inserir Dados
   function insertDocument(item) {
-    fetch("http://localhost:3000/to-do/add", {
+    fetch(`${url}/add`, {
       method: "POST",
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ "text": "", "active": true }),
@@ -29,7 +32,7 @@ function App() {
 
   // Atualizar Dados
   function updateDocument(item) {
-    fetch("http://localhost:3000/to-do/update", {
+    fetch(`${url}/update`, {
       method: "PATCH",
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(item),
@@ -41,7 +44,7 @@ function App() {
 
   // Deleta Dados
   function deleteDocument(item) {
-    fetch("http://localhost:3000/to-do/delete", {
+    fetch(`${url}/delete`, {
       method: "DELETE",
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(item),

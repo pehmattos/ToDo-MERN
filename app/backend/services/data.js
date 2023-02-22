@@ -2,12 +2,11 @@ const { MongoClient } = require("mongodb");
 // or as an es module:
 // import { MongoClient } from 'mongodb'
 const assert = require('assert');
-const { env } = require("process");
 // faz com que o Nodejs roda bem em todos os navegadores
-
+require('dotenv').config();
 // Connection URL
 // const url = "mongodb://0.0.0.0:27017";
-const url = process.env.MONGO_URL || "mongodb://127.0.0.1:27017";
+const url = process.env.MONGO_URL || `mongodb://${MONGOURL_LOCAL}:${MONGOPORT_LOCAL}`;
 const client = new MongoClient(url);
 // Database Name
 const dbName = "to-do-db";

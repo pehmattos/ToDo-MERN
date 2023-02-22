@@ -1,23 +1,32 @@
 const express = require('express');
-const todoRoutes = require("./routes/routes");
+const todoRoutes = require("./router/routes");
 var bodyParser = require('body-parser');
-var cors = require("cors");
-//afim de usar o middleware
+var cors = require("cors"); //afim de usar o middleware
 const app = express();
-const PORT = process.env.MONGOPORT || 3000;
+require('dotenv').config();
+const PORT = process.env.PORT || process.env.PORT_LOCAL;
 
-app.use(bodyParser.json());
+// Middlewares
+
+// modules
+app.use(bodyParser.json()); // analisa textos json
 app.use(cors());
-// analisa textos json
-app.use("/to-do", todoRoutes);
-// middleware que redireciona para todoRoutes
 
+// router-level middleware
+app.use("/to-do", todoRoutes, (req, res) =>{
+    res.send('go to port 3001 to access frontend')
+});
+
+// built-in middleware
+app.use(express.json());
+
+// error handling middleware
 app.use((req, res, next) => {
     res.status(404).send("Esta rota não existe!");
 });
-app.use(express.json());
+
 
 app.listen(PORT, () => {
-    console.log(`Servidor iniciado na porta 3000: http://localhost:3000`);
-    console.log('CORS-enabled web server listening on port 3000');
+    console.log(`Servidor iniciado na porta ${PORT}`);
+    console.log('CORS-enabled');
 });
