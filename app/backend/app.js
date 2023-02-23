@@ -14,7 +14,7 @@ app.use(cors()); // corre em diferentes portas
 
 // router-level middleware
 app.use("/to-do", todoRoutes, (req, res) =>{
-    res.send('go to port 3001 to access frontend')
+    res.send('empty')
 });
 
 // built-in middleware
