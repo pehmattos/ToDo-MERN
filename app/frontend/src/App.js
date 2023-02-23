@@ -12,7 +12,7 @@ function App() {
 
   // Capturar Dados
   function getData() {
-    fetch(`https://todo-mern-backend-production.up.railway.app/list`, { method: "GET" })
+    fetch(`https://todo-mern-backend-production.up.railway.app/to-do/list`, { method: "GET" })
       .then((res) => res.json(res))
       .then((data) => setItens(data)) // when setItens work change the state of /list
       .catch((err) => console.log(err))
@@ -20,7 +20,7 @@ function App() {
 
   // Inserir Dados
   function insertDocument(item) {
-    fetch(`https://todo-mern-backend-production.up.railway.app/add`, {
+    fetch(`https://todo-mern-backend-production.up.railway.app/to-do/add`, {
       method: "POST",
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ "text": "", "active": true }),
@@ -32,7 +32,7 @@ function App() {
 
   // Atualizar Dados
   function updateDocument(item) {
-    fetch(`https://todo-mern-backend-production.up.railway.app/update`, {
+    fetch(`https://todo-mern-backend-production.up.railway.app/to-do/update`, {
       method: "PATCH",
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(item),
@@ -44,7 +44,7 @@ function App() {
 
   // Deleta Dados
   function deleteDocument(item) {
-    fetch(`https://todo-mern-backend-production.up.railway.app/delete`, {
+    fetch(`https://todo-mern-backend-production.up.railway.app/to-do/delete`, {
       method: "DELETE",
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(item),
