@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 import Item from "./components/item";
 // import dotenv from 'dotenv';
 // dotenv.config();
-const url = process.env.API_URL || process.env.REACT_APP_URL ;
+const url = process.env.REACT_APP_API_URL || process.env.REACT_APP_URL ;
 
 function App() {
   // State changes -  when add something
